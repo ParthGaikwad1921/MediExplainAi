@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/ParthGaikwad1921/MediExplainAi#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^4.21.2",
     "mongoose": "^9.9.0"
