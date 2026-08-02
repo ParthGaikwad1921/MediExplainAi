@@ -1,0 +1,59 @@
+import mongoose from "mongoose";
+import { User } from "./user.model";
+
+const reportSchema = new mongoose.Schema({
+    owner:{
+        type:Schema.Types.ObjectId,
+        ref:"User"
+    },
+    symptoms:{
+        type:String,
+        required:true,
+        trim:true,
+    },
+    medicine:{
+        type:String,
+        trim:true,
+        required:true
+    },
+    conditions:{
+        type:String ,
+        required:true,
+        trim:true,
+        enum:["long-term","short-term"]
+    },
+    laborataryName:{
+        type:String,
+        trim:true
+    },
+    aiSummary:{
+        type:String,
+    },
+    aiSuggestions:{
+        type:String
+    },
+    reportFile:{
+        type:String,
+        required:true
+    },
+    reportFilePublicId:{
+        type:String,
+    },
+    doctorName:{
+        type:String,
+        trim:true,
+        required:true
+    },
+    hospitalName:{
+        type:String,
+        required:true,
+        trim:true
+    },
+    extractedText:{
+        type:String,
+        required:true
+    }
+},
+{
+    timestamps:true
+})
