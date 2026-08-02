@@ -1,18 +1,17 @@
 import mongoose from "mongoose";
-import { User } from "./user.model";
 
 const reportSchema = new mongoose.Schema({
     owner:{
-        type:Schema.Types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:"User"
     },
     symptoms:{
-        type:String,
+        type:[String],
         required:true,
         trim:true,
     },
     medicine:{
-        type:String,
+        type:[String],
         trim:true,
         required:true
     },
@@ -22,15 +21,17 @@ const reportSchema = new mongoose.Schema({
         trim:true,
         enum:["long-term","short-term"]
     },
-    laborataryName:{
+    laboratoryName:{
         type:String,
         trim:true
     },
     aiSummary:{
         type:String,
+        default:""
     },
     aiSuggestions:{
-        type:String
+        type:String,
+        default:""
     },
     reportFile:{
         type:String,
@@ -38,6 +39,7 @@ const reportSchema = new mongoose.Schema({
     },
     reportFilePublicId:{
         type:String,
+        default:""
     },
     doctorName:{
         type:String,

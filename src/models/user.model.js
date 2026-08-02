@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:true,
         trim:true,
-        enum:["A+","B+","A-","B-","O+","O-","AB+"]
+        enum:["A+","B+","A-","B-","O+","O-","AB+","AB-"]
     },
     refreshToken:{
         type:String,
@@ -28,6 +28,7 @@ const userSchema = new mongoose.Schema({
         required:true,
         trim:true,
         lowercase:true,
+        unique:true
     },
     password:{
         type:String,
@@ -37,7 +38,13 @@ const userSchema = new mongoose.Schema({
     dateOfBirth:{
         type:Date,
         required:true,
-        trim:true
+    },
+    phoneNumber:{
+        type:String,
+        required:true,
+        trim:true,
+        minlength:10,
+        maxlength:10
     }
 },
 {
@@ -45,4 +52,4 @@ const userSchema = new mongoose.Schema({
 }
 )
 
-export const User = mongoose.model("User",UserSchema);
+export const User = mongoose.model("User",userSchema);
